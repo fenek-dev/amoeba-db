@@ -1,17 +1,25 @@
 # amoeba-db
 Stupidly simple and naïve db. Mostly for educational purpose.
 
-## File Layout
+## File Layouts
 
 ```
+                        MAIN FILE
 |--------------------------HEADERS--------------------------|
-| magic number 10B | table count 4B |                       | 
+| magic string 10B | table count 4B |                       | 
 |--------------------MAP OF TABLES--------------------------|
-| table1 pages 4B | table offset 8B | table name 64B |      |
-| table2 pages 4B | table offset 8B | table name 64B |      |
-|------------------------TABLE PAGE-------------------------|
-| table name 64B | page num 8B | next page address 8B |     |
-|------------------------TABLE DATA-------------------------|
+| id 16B | table name 32B |                                 |
+| id 16B | table name 32B |                                 |
+|-----------------------------------------------------------|
+
+                        TABLE FILE
+|------------------------HEADERS----------------------------|
+| table name 32B | page num 4B | col num 4B |               |
+| col1 name 32B | col1 type 2B | col1 size 2B |             |
+|------------------------PAGE-------------------------------|
+| type 2B | next page 8B |                                  |
+| prev page 8B | row count 4B | free space 4B |             |
+|------------------------DATA-------------------------------|
 | column1 , column2 , column3 \n                            |
 |-----------------------------------------------------------|
 ```
