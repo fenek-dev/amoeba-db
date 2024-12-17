@@ -17,8 +17,7 @@ Stupidly simple and naïve db. Mostly for educational purpose.
 | table name 32B | page num 4B | col num 4B |               |
 | col1 name 32B | col1 type 2B | col1 size 2B |             |
 |------------------------PAGE-------------------------------|
-| type 2B | next page 8B |                                  |
-| prev page 8B | row count 4B | free space 4B |             |
+| next page 8B | free space 4B | end 4B                     |
 |------------------------DATA-------------------------------|
 | column1 , column2 , column3 \n                            |
 |-----------------------------------------------------------|
